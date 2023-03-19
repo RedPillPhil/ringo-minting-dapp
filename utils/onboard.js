@@ -6,7 +6,7 @@ import fortmaticModule from '@web3-onboard/fortmatic'
 
 import ApeIcon from '../Ape'
 
-const RPC_URL = process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL
+const RPC_URL = 'https://crab-rpc.darwinia.network'
 
 const fortmatic = fortmaticModule({
   apiKey: process.env.NEXT_PUBLIC_FORTMATIC_KEY
