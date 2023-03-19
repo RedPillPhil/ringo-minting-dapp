@@ -1,3 +1,5 @@
+
+
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3')
 const { MerkleTree } = require('merkletreejs')
 const keccak256 = require('keccak256')
@@ -30,12 +32,12 @@ export const isPausedState = async () => {
 }
 
 export const isPublicSaleState = async () => {
-  const publicSale = await nftContract.methods.publicM().call()
+  const publicSale = await nftContract.methods.mint().call()
   return publicSale
 }
 
 export const isPreSaleState = async () => {
-  const preSale = await nftContract.methods.presaleM().call()
+  const preSale = await nftContract.methods.mint().call()
   return preSale
 }
 
