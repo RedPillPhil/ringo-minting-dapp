@@ -33,9 +33,9 @@ const initOnboard = init({
     // },
     {
       id: '0x4',
-      token: 'rETH',
-      label: 'Ethereum Rinkeby Testnet',
-      rpcUrl: RPC_URL
+      token: 'CRAB',
+      label: 'Crab EVM',
+      rpcUrl: 'https://crab-rpc.darwinia.network'
     }
     // {
     //   id: '0x89',
@@ -45,9 +45,9 @@ const initOnboard = init({
     // }
   ],
   appMetadata: {
-    name: 'BoredApes',
+    name: 'Ringo Bingo',
     icon: ApeIcon,
-    description: 'We are some bored apes',
+    description: 'Ringo was his name-o',
     recommendedInjectedWallets: [
       { name: 'MetaMask', url: 'https://metamask.io' },
       { name: 'Coinbase', url: 'https://wallet.coinbase.com/' }
