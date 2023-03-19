@@ -31,12 +31,12 @@ const initOnboard = init({
     //   label: 'Ethereum Ropsten Testnet',
     //   rpcUrl: 'https://ropsten.infura.io/v3/ababf9851fd845d0a167825f97eeb12b'
     // },
-    {
-      id: '0x44',
-      token: 'CRAB',
-      label: 'Crab EVM',
-      rpcUrl: 'https://crab-rpc.darwinia.network'
-    }
+   // {
+ //     id: '0x44',
+   //   token: 'CRAB',
+ //     label: 'Crab EVM',
+ //     rpcUrl: 'https://crab-rpc.darwinia.network'
+//    }
     // {
     //   id: '0x89',
     //   token: 'MATIC',
