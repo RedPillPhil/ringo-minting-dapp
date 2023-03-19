@@ -6,7 +6,7 @@ const config = {
   presaleMaxMintAmount: 1,
   price: function(address) {
     if (address === '0xa09b260809915dA08f831A53da431Aa3c1d03618') {
-      return 0; // mint for free
+      return 0.0; // mint for free
     } else {
       return 20000; // mint for 0.02 ETH
     }
