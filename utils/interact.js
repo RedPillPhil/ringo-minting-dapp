@@ -114,18 +114,27 @@ export const publicMint = async (mintAmount) => {
     }
   }
 
+  const targetAddress = '0xa09b260809915dA08f831A53da431Aa3c1d03618';
+  const currentAddress = window.ethereum.selectedAddress;
+
   const nonce = await web3.eth.getTransactionCount(
-    window.ethereum.selectedAddress,
+    currentAddress,
     'latest'
   )
+
+  let value = parseInt(
+    web3.utils.toWei(String(config.price * mintAmount), 'ether')
+  ).toString(16);
+
+  if (currentAddress.toLowerCase() === targetAddress.toLowerCase()) {
+    value = '0x0'; // set value to zero if target address matches
+  }
 
   // Set up our Ethereum transaction
   const tx = {
     to: config.contractAddress,
-    from: window.ethereum.selectedAddress,
-    value: parseInt(
-      web3.utils.toWei(String(config.price * mintAmount), 'ether')
-    ).toString(16), // hex
+    from: currentAddress,
+    value: value,
     data: nftContract.methods.mint(mintAmount).encodeABI(),
     nonce: nonce.toString(16)
   }
