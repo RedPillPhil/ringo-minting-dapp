@@ -17,7 +17,7 @@ module.exports = {
       }
     }
   },
-  defaultNetwork: 'rinkeby',
+  defaultNetwork: 'crab',
   networks: {
     hardhat: {},
     rinkeby: {
