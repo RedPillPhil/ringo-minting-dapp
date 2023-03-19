@@ -1,9 +1,9 @@
 const config = {
   title: 'BoredApe Dapp',
   description: 'A showcase dapp which is built for you to create your own',
-  contractAddress: '0x0312e42e4b55823a3C41769DC0B07F382dECc247',
-  maxMintAmount: 10,
-  presaleMaxMintAmount: 3,
+  contractAddress: '0x3aC22795304A27edb04Cfe2475DCEf0c5C8B5539',
+  maxMintAmount: 1,
+  presaleMaxMintAmount: 1,
   price: 20000
 }
 
