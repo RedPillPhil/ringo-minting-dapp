@@ -229,7 +229,7 @@ export default function Mint() {
                         {Number.parseFloat(config.price * mintAmount).toFixed(
                           2
                         )}{' '}
-                        ETH
+                        CRAB
                       </p>{' '}
                       <span className="text-gray-400">+ GAS</span>
                     </div>
