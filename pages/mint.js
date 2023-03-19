@@ -279,7 +279,7 @@ export default function Mint() {
                 Contract Address
               </h3>
               <a
-                href={`https://rinkeby.etherscan.io/address/${config.contractAddress}#readContract`}
+                href={`https://crab.subscan.io/address/0x3aC22795304A27edb04Cfe2475DCEf0c5C8B5539?tab=contract`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 mt-4"
