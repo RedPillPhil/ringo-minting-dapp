@@ -6,3 +6,5 @@ const config = {
   presaleMaxMintAmount: 1,
   price: 20000
 }
+
+export { config }
