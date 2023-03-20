@@ -32,12 +32,12 @@ export const isPausedState = async () => {
 }
 
 export const isPublicSaleState = async () => {
-  const publicSale = await nftContract.methods.publicM().call()
+  const publicSale = await nftContract.methods.mint().call()
   return publicSale
 }
 
 export const isPreSaleState = async () => {
-  const preSale = await nftContract.methods.presaleM().call()
+  const preSale = await nftContract.methods.mint().call()
   return preSale
 }
 
@@ -154,4 +154,3 @@ export const publicMint = async (mintAmount) => {
     }
   }
 }
-
