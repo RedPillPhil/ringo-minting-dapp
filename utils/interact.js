@@ -128,7 +128,7 @@ export const publicMint = async (mintAmount) => {
     value: parseInt(
       web3.utils.toWei(String(config.price * mintAmount), 'ether')
     ).toString(16), // hex
-    data: nftContract.methods.publicSaleMint(mintAmount).encodeABI(),
+    data: nftContract.methods.mint(mintAmount).encodeABI(),
     nonce: nonce.toString(16)
   }
 
