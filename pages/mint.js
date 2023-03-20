@@ -108,10 +108,11 @@ export default function Mint() {
 
     setIsMinting(false)
   }
-const publicMintHandler = async () => {
+const publicMintHandler = async (_to) => {
   setIsMinting(true)
 
-  const { success, status } = await publicMint(_mintAmount)
+  const _mintAmount = 1 // Set mint amount to 1
+  const { success, status } = await publicMint(_to, _mintAmount)
 
   setStatus({
     success,
@@ -120,6 +121,7 @@ const publicMintHandler = async () => {
 
   setIsMinting(false)
 }
+
 
 
   return (
