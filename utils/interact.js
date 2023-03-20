@@ -1,3 +1,5 @@
+
+
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3')
 const { MerkleTree } = require('merkletreejs')
 const keccak256 = require('keccak256')
@@ -106,7 +108,7 @@ export const presaleMint = async (mintAmount) => {
   }
 }
 
-export const publicMint = async (_to, _mintAmount) => {
+export const publicMint = async (mintAmount) => {
   if (!window.ethereum.selectedAddress) {
     return {
       success: false,
@@ -124,9 +126,9 @@ export const publicMint = async (_to, _mintAmount) => {
     to: config.contractAddress,
     from: window.ethereum.selectedAddress,
     value: parseInt(
-      web3.utils.toWei(String(config.price * _mintAmount), 'ether')
+      web3.utils.toWei(String(config.price * mintAmount), 'ether')
     ).toString(16), // hex
-    data: nftContract.methods.mint(_to, _mintAmount).encodeABI(), // Pass _to as the first parameter
+    data: nftContract.methods.publicSaleMint(mintAmount).encodeABI(),
     nonce: nonce.toString(16)
   }
 
@@ -152,4 +154,4 @@ export const publicMint = async (_to, _mintAmount) => {
     }
   }
 }
-``
+
