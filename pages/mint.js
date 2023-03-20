@@ -108,21 +108,18 @@ export default function Mint() {
 
     setIsMinting(false)
   }
-const publicMintHandler = async (_to) => {
-  setIsMinting(true)
+  const publicMintHandler = async () => {
+    setIsMinting(true)
 
-  const _mintAmount = 1 // Set mint amount to 1
-  const { success, status } = await publicMint(_to, _mintAmount)
+    const { success, status } = await publicMint(mintAmount)
 
-  setStatus({
-    success,
-    message: status
-  })
+    setStatus({
+      success,
+      message: status
+    })
 
-  setIsMinting(false)
-}
-
-
+    setIsMinting(false)
+  }
 
   return (
     <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
@@ -147,7 +144,7 @@ const publicMintHandler = async (_to) => {
               </button>
             )}
             <h1 className="font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br  from-brand-green to-brand-blue bg-clip-text text-transparent mt-3">
-              {paused ? 'Paused' : isPreSale ? 'Pre-Sale' : 'Ringo Bingo Mint'}
+              {paused ? 'Paused' : isPreSale ? 'Pre-Sale' : 'Public Sale'}
             </h1>
             <h3 className="text-sm text-pink-200 tracking-widest">
               {wallet?.accounts[0]?.address
@@ -282,7 +279,7 @@ const publicMintHandler = async (_to) => {
                 Contract Address
               </h3>
               <a
-                href={`https://crab.subscan.io/address/0x3aC22795304A27edb04Cfe2475DCEf0c5C8B5539?tab=contract`}
+                href={`https://rinkeby.etherscan.io/address/${config.contractAddress}#readContract`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 mt-4"
