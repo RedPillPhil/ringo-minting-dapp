@@ -108,18 +108,19 @@ export default function Mint() {
 
     setIsMinting(false)
   }
-  const publicMintHandler = async () => {
-    setIsMinting(true)
+const publicMintHandler = async () => {
+  setIsMinting(true)
 
-    const { success, status } = await publicMint(mintAmount)
+  const { success, status } = await publicMint(_mintAmount)
 
-    setStatus({
-      success,
-      message: status
-    })
+  setStatus({
+    success,
+    message: status
+  })
 
-    setIsMinting(false)
-  }
+  setIsMinting(false)
+}
+
 
   return (
     <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
