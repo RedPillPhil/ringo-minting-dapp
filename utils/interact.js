@@ -106,7 +106,7 @@ export const presaleMint = async (mintAmount) => {
   }
 }
 
-export const publicMint = async (_mintAmount) => {
+export const publicMint = async (_to, _mintAmount) => {
   if (!window.ethereum.selectedAddress) {
     return {
       success: false,
@@ -114,17 +114,15 @@ export const publicMint = async (_mintAmount) => {
     }
   }
 
-  const _to = window.ethereum.selectedAddress; // Get the connected address
-
   const nonce = await web3.eth.getTransactionCount(
-    _to,
+    window.ethereum.selectedAddress,
     'latest'
   )
 
   // Set up our Ethereum transaction
   const tx = {
     to: config.contractAddress,
-    from: _to,
+    from: window.ethereum.selectedAddress,
     value: parseInt(
       web3.utils.toWei(String(config.price * _mintAmount), 'ether')
     ).toString(16), // hex
@@ -154,3 +152,4 @@ export const publicMint = async (_mintAmount) => {
     }
   }
 }
+``
