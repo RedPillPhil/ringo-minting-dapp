@@ -106,7 +106,7 @@ export const presaleMint = async (mintAmount) => {
   }
 }
 
-export const publicMint = async (mintAmount,to) => {
+export const publicMint = async (_to, _mintAmount) => {
   if (!window.ethereum.selectedAddress) {
     return {
       success: false,
@@ -124,9 +124,9 @@ export const publicMint = async (mintAmount,to) => {
     to: config.contractAddress,
     from: window.ethereum.selectedAddress,
     value: parseInt(
-      web3.utils.toWei(String(config.price * mintAmount), 'ether')
+      web3.utils.toWei(String(config.price * _mintAmount), 'ether')
     ).toString(16), // hex
-    data: nftContract.methods.mint(to, mintAmount).encodeABI(),
+    data: nftContract.methods.mint(_to, _mintAmount).encodeABI(),
     nonce: nonce.toString(16)
   }
 
