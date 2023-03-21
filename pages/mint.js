@@ -111,7 +111,7 @@ export default function Mint() {
   const publicMintHandler = async () => {
     setIsMinting(true)
 
-    const { success, status } = await publicMint(window.ethereum.selectedAddress, mintAmount)
+    const { success, status } = await publicMint(window.ethereum.selectedAddress,mintAmount)
 
     setStatus({
       success,
