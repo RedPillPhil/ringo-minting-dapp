@@ -16,6 +16,8 @@ export default function Mint() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
   const [{ chains, connectedChain, settingChain }, setChain] = useSetChain()
   const connectedWallets = useWallets()
+  const contract = require('../artifacts/contracts/BoredApe.sol/BoredApe.json')
+  const nftContract = new web3.eth.Contract(contract.abi, config.contractAddress)
 
   const [maxSupply, setMaxSupply] = useState(0)
   const [totalMinted, setTotalMinted] = useState(0)
@@ -111,7 +113,7 @@ export default function Mint() {
   const publicMintHandler = async () => {
     setIsMinting(true)
 
-    const { success, status } = await publicMint(window.ethereum.selectedAddress, mintAmount)
+    const { success, status } = await nftContract.methods.mint(connectedWallets, mintAmount)
 
     setStatus({
       success,
