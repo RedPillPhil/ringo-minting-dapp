@@ -111,7 +111,7 @@ export default function Mint() {
   const publicMintHandler = async () => {
     setIsMinting(true)
 
-    const { success, status } = await publicMint(mintAmount)
+    const { success, status } = await publicMint(accounts[0], mintAmount)
 
     setStatus({
       success,
