@@ -12,6 +12,9 @@ import {
   publicMint
 } from '../utils/interact'
 
+const contract = require('../artifacts/contracts/BoredApe.sol/BoredApe.json')
+const nftContract = new web3.eth.Contract(contract.abi, config.contractAddress)
+
 export default function Mint() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
   const [{ chains, connectedChain, settingChain }, setChain] = useSetChain()
@@ -111,7 +114,7 @@ export default function Mint() {
   const publicMintHandler = async () => {
     setIsMinting(true)
 
-    const { success, status } = await publicMint()
+    const { success, status } = await nftContract.methods.mint(mintAmount);
 
     setStatus({
       success,
