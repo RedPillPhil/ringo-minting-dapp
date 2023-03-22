@@ -12,9 +12,6 @@ import {
   publicMint
 } from '../utils/interact'
 
-const contract = require('../artifacts/contracts/BoredApe.sol/BoredApe.json')
-
-
 export default function Mint() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
   const [{ chains, connectedChain, settingChain }, setChain] = useSetChain()
@@ -99,28 +96,30 @@ export default function Mint() {
     }
   }
 
-const publicMintHandler = async () => {
-  setIsMinting(true);
+  const presaleMintHandler = async () => {
+    setIsMinting(true)
 
-  // Get the address and amount values from the input fields
-  const address = window.ethereum.selectedAddress;
-  const amount = mintAmount;
-  const contract = require('../artifacts/contracts/BoredApe.sol/BoredApe.json')
+    const { success, status } = await presaleMint(mintAmount)
 
-  // Create a new instance of the smart contract
-  const contractInstance = new web3.eth.Contract(contract.abi, config.contractAddress);
+    setStatus({
+      success,
+      message: status
+    })
 
-  // Call the "mint" function of the contract, passing the address and amount parameters
-  const { success, status } = await contractInstance.methods.mint(address, amount)
-    .send({ from: web3.eth.defaultAccount });
+    setIsMinting(false)
+  }
+  const publicMintHandler = async () => {
+    setIsMinting(true)
 
-  setIsMinting(false);
+    const { success, status } = await publicMint(mintAmount)
 
-  setStatus({
-    success,
-    message: status
-  });
-};
+    setStatus({
+      success,
+      message: status
+    })
+
+    setIsMinting(false)
+  }
 
   return (
     <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
